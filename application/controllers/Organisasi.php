@@ -79,13 +79,15 @@ class Organisasi extends CI_Controller {
             $done = $this->Model_ormawa->lpjdone($idproker)->result()[0]->jumlah;
             $not = $this->Model_ormawa->lpjnot($idproker)->result()[0]->jumlah;
             $sumproker = $this->Model_ormawa->proker($idproker)->result();
+            $prokerdetail = $this->Model_ormawa->prokerdetail($idproker)->result();
             if ($sumproker[0]->jumlah > 0) {
                 $sumproker = $sumproker[0]->jumlah;
                 $d = round($done/$sumproker * 100,2);
                 $n = round($not/$sumproker * 100,2) ;
                 $chart = array($d,$n);
                 $data['chart'] = json_encode($chart); 
-            }            
+            }
+            $data['dataproker'] = $prokerdetail;
         }
         $data['departemen'] = $this->Model_ormawa->departemenOrganisasi($this->session->userdata('idOrganisasi'))->result();
         $data['data'] = $this->Model_berita->get_all_berita();

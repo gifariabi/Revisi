@@ -385,6 +385,23 @@
                     </script>
                     <canvas id="myPieChart"></canvas>
                   </div>
+                    PROKER SELESAI
+                    <br>
+                  <?php if (isset($chart)) {
+                    foreach ($dataproker as $dp) {?>
+                    <?php if ($dp->upload_lpj == 1) {
+                      echo $dp->nama_kegiatan."<br>";
+                      ?>
+                    <?php }}?>
+                      <br>
+                    PROKER BELUM SELESAI
+                    <br>
+                    <?php foreach ($dataproker as $dpi) {
+                      if ($dpi->upload_lpj == 0) {
+                        echo $dpi->nama_kegiatan."<br>";
+                        ?>
+                        
+                  <?php }}}?>
                 </div>
               </div>
             </div>

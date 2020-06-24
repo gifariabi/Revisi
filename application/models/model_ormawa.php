@@ -239,6 +239,11 @@ class Model_ormawa extends CI_Model{
         WHERE
             id_programkerja = '.$idproker);
         }
+        public function prokerdetail($idproker)
+        {
+            return $this->db->query('SELECT * FROM kegiatan WHERE
+            id_programkerja = '.$idproker);
+        }
 
     }
 ?>
